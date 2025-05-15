@@ -1,13 +1,20 @@
+import i18n from "@/shared/lib/i18n";
 import { z } from "zod";
 
 export const loginSchema = z.object({
-    email: z.string().email("Некорректный email"),
-    password: z.string().min(6, "Минимум 6 символов").max(32, "Максимум 32 символа"),
+    email: z.string().email({ message: i18n.t("input.required") }),
+    password: z
+        .string()
+        .min(6, { message: i18n.t("input.min") })
+        .max(32, { message: i18n.t("input.max") }),
 });
 
 export const registerSchema = z.object({
-    login: z.string().min(1, "Обязательное поле"),
-    password: z.string().min(6, "Минимум 6 символов").max(32, "Максимум 32 символа"),
+    email: z.string().min(1, { message: i18n.t("input.required") }),
+    password: z
+        .string()
+        .min(6, { message: i18n.t("input.min") })
+        .max(32, { message: i18n.t("input.max") }),
 });
 
 export type LoginFormData = z.infer<typeof loginSchema>;
