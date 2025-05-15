@@ -14,7 +14,7 @@ export const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <header className="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-accent-light/10 dark:border-accent-dark/10 backdrop-blur-sm">
+        <header className="h-16 sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-accent-light/10 dark:border-accent-dark/10 backdrop-blur-sm">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 <div className="flex items-center gap-8">{/* <Navigation /> */}</div>
 

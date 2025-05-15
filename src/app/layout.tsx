@@ -2,9 +2,9 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
     return (
-        <div className="min-h-screen flex flex-col">
+        <main className="min-h-[calc(100vh-64px)] flex flex-col flex-1 bg-background-light dark:bg-background-dark">
             <Outlet />
-        </div>
+        </main>
     );
 }
 
