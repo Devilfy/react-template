@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { jwtDecode } from "jwt-decode";
-import { AUTH_TOKENS } from "../../shared/constants/token";
-import { api } from "../../shared/api";
+import { AUTH_TOKENS } from "@/shared/constants/token";
+import { api } from "@/shared/api";
 
 type Session = {
     id: string;
