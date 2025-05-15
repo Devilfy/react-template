@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
 import type { RegisterFormData } from "./types";
 import { toast } from "sonner";
-
+import { useTranslation } from "react-i18next";
 export function useRegister() {
+    const { t } = useTranslation();
     const session = useSession();
     const navigate = useNavigate();
 
@@ -15,11 +16,11 @@ export function useRegister() {
         mutationFn: authApi.register,
         onSuccess: (data) => {
             session.register(data.accessToken, data.refreshToken);
-            toast.success("Регистрация прошла успешно");
+            toast.success(t("register.success"));
             navigate(ROUTES.HOME);
         },
         onError: () => {
-            toast.error("Регистрация прошла неудачно");
+            toast.error(t("register.error"));
         },
     });
 

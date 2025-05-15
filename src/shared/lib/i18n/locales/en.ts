@@ -8,11 +8,11 @@ export const en = {
             haveAccount: "Already have an account?",
             dontHaveAccount: "Don't have an account?",
         },
-        sigin: {
+        login: {
             success: "You have successfully logged in",
             error: "Invalid email or password",
         },
-        signup: {
+        register: {
             success: "You have successfully registered",
             error: "Invalid email or password",
         },

@@ -8,11 +8,11 @@ export const ru = {
             haveAccount: "Уже есть аккаунт?",
             dontHaveAccount: "Нет аккаунта?",
         },
-        sigin: {
+        login: {
             success: "Вы успешно авторизовались",
             error: "Неверный email или пароль",
         },
-        signup: {
+        register: {
             success: "Вы успешно зарегистрировались",
             error: "Вы уже зарегистрированы",
         },

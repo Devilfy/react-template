@@ -6,8 +6,10 @@ import { ROUTES } from "@/shared/model/routes";
 import { useCallback } from "react";
 import type { LoginFormData } from "./types";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 export function useLogin() {
+    const { t } = useTranslation();
     const session = useSession();
     const navigate = useNavigate();
 
@@ -15,11 +17,11 @@ export function useLogin() {
         mutationFn: authApi.login,
         onSuccess: (data) => {
             session.login(data.accessToken, data.refreshToken);
-            toast.success("Вход в систему прошел успешно");
+            toast.success(t("login.success"));
             navigate(ROUTES.HOME);
         },
         onError: () => {
-            toast.error("Вход в систему прошел неудачно");
+            toast.error(t("login.error"));
         },
     });
 
