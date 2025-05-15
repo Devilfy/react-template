@@ -9,12 +9,22 @@ export const ru = {
             dontHaveAccount: "Нет аккаунта?",
         },
         login: {
+            title: "Вход в систему",
+            description: "Введите ваш email и пароль",
+            footerText: "Нет аккаунта?",
+            footerLink: "Зарегистрироваться",
             success: "Вы успешно авторизовались",
             error: "Неверный email или пароль",
+            loginButton: "Вход",
         },
         register: {
+            title: "Регистрация",
+            description: "Создайте аккаунт",
+            footerText: "Уже есть аккаунт?",
+            footerLink: "Вход в систему",
             success: "Вы успешно зарегистрировались",
-            error: "Вы уже зарегистрированы",
+            error: "Неверный email или пароль",
+            registerButton: "Зарегистрироваться",
         },
         logout: {
             success: "Вы успешно вышли из системы",

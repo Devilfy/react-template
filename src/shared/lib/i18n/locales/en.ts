@@ -9,12 +9,22 @@ export const en = {
             dontHaveAccount: "Don't have an account?",
         },
         login: {
+            title: "Login",
+            description: "Login to your account",
+            footerText: "Don't have an account?",
+            footerLink: "Sign up",
             success: "You have successfully logged in",
             error: "Invalid email or password",
+            loginButton: "Login",
         },
         register: {
+            title: "Register",
+            description: "Create an account",
+            footerText: "Already have an account?",
+            footerLink: "Login",
             success: "You have successfully registered",
             error: "Invalid email or password",
+            registerButton: "Register",
         },
         logout: {
             success: "You have successfully logged out",
