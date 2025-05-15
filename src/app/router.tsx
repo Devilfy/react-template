@@ -3,12 +3,13 @@ import { ROUTES } from "@/shared/model/routes";
 import { Providers } from "./providers";
 import Layout from "./layout";
 import { ProtectedRoute } from "./protected-route";
-import Header from "@/features/header/header";
+import { Header } from "@/features/header/header";
 
 export const router = createBrowserRouter([
     {
         element: (
             <Providers>
+                <Header />
                 <Layout />
             </Providers>
         ),
@@ -16,11 +17,15 @@ export const router = createBrowserRouter([
             {
                 element: (
                     <>
-                        <Header />
                         <ProtectedRoute />
                     </>
                 ),
-                children: [{}],
+                children: [
+                    {
+                        path: ROUTES.HOME,
+                        element: <p>Home</p>,
+                    },
+                ],
             },
             {
                 path: ROUTES.LOGIN,

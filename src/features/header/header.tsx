@@ -60,12 +60,14 @@ export const Header = () => {
                         ) : (
                             <div className="flex items-center gap-3">
                                 <Button
+                                    size="lg"
                                     className="text-sm font-medium text-text-light dark:text-text-dark hover:text-primary-light bg-transparent border border-accent-light/40 dark:border-accent-dark/40 hover:bg-accent-light/10 dark:hover:bg-accent-dark/10 transition-all duration-200 rounded-lg"
                                     onClick={() => navigate(ROUTES.LOGIN)}>
                                     {t("header.login")}
                                 </Button>
                                 <Button
-                                    className="text-sm font-medium bg-primary-light dark:bg-primary-dark text-white hover:bg-accent-light dark:hover:bg-accent-dark transition-all duration-200 rounded-lg"
+                                    size="lg"
+                                    className="text-sm font-medium bg-primary-light dark:bg-primary-dark text-white hover:bg-accent-light dark:hover:bg-primary-dark/80 transition-all duration-200 rounded-lg"
                                     onClick={() => navigate(ROUTES.REGISTER)}>
                                     {t("header.register")}
                                 </Button>

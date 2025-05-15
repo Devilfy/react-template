@@ -12,7 +12,7 @@ export const LanguageSwitcher = () => {
 
     return (
         <Button
-            size="sm"
+            size="icon"
             onClick={toggleLanguage}
             className="text-sm font-medium text-text-light dark:text-text-dark hover:text-accent-light dark:hover:text-accent-dark bg-transparent border border-accent-light/40 dark:border-accent-dark/40 hover:bg-accent-light/10 dark:hover:bg-accent-dark/10 transition-all duration-200 rounded-lg">
             {i18n.language === "en" ? "RU" : "EN"}
