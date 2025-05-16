@@ -42,5 +42,11 @@ export const en = {
             min: "Minimum 6 characters",
             max: "Maximum 32 characters",
         },
+        notFound: {
+            title: "Page Not Found",
+            description: "Sorry, the page you are looking for doesn't exist or has been moved.",
+            back: "Go Back",
+            home: "Home",
+        },
     },
 };

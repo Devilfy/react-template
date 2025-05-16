@@ -7,8 +7,11 @@ import { ROUTES } from "@/shared/model/routes";
 import type { RegisterFormData } from "./types";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import useUser from "@/services/user/model/use-user";
+
 export function useRegister() {
     const { t } = useTranslation();
+    const { updateUser } = useUser();
     const session = useSession();
     const navigate = useNavigate();
 
@@ -17,6 +20,7 @@ export function useRegister() {
         onSuccess: (data) => {
             session.register(data.accessToken, data.refreshToken);
             toast.success(t("register.success"));
+            updateUser();
             navigate(ROUTES.HOME);
         },
         onError: () => {

@@ -35,6 +35,18 @@ export const router = createBrowserRouter([
                 path: ROUTES.REGISTER,
                 lazy: () => import("@/features/auth/register.page"),
             },
+            {
+                path: ROUTES.PROFILE,
+                lazy: () => import("@/features/profile/profile.page"),
+            },
+            {
+                path: ROUTES.NOT_FOUND,
+                lazy: () => import("@/features/not-found/not-found.page"),
+            },
+            // {
+            //     path: ROUTES.HOME,
+            //     loader: () => redirect(ROUTES.BOARDS),
+            // },
         ],
     },
 ]);

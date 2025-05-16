@@ -9,9 +9,15 @@ import { useTranslation } from "react-i18next";
 
 export const Header = () => {
     const { t } = useTranslation();
-    const { user } = useUser();
+    const { user, isAuthenticated, updateUser } = useUser();
     const { logout } = useSession();
     const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        updateUser();
+        navigate(ROUTES.LOGIN);
+    };
 
     return (
         <header className="h-16 sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-accent-light/10 dark:border-accent-dark/10 backdrop-blur-sm">
@@ -20,40 +26,26 @@ export const Header = () => {
 
                 <div className="flex items-center gap-4">
                     <div className="hidden md:flex items-center gap-4">
-                        {user ? (
+                        {isAuthenticated && user ? (
                             <div className="flex items-center gap-4">
                                 <div
-                                    className="flex items-center gap-3 cursor-pointer rounded-lg transition-all duration-200 hover:bg-accent-light/5 dark:hover:bg-accent-dark/5 p-2"
+                                    className="flex items-center cursor-pointer rounded-lg transition-all duration-200 hover:bg-accent-light/5 dark:hover:bg-accent-dark/5 p-2"
                                     onClick={() => navigate(`/profile/${user.id}`)}>
                                     <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-primary-light dark:ring-primary-dark">
-                                        {/* {user.avatar ? (
-                                            <Image
-                                                src={getMediaUrl(user.avatar.url)}
-                                                alt={user.username}
-                                                fill
-                                                sizes="32px"
-                                                priority
-                                                className="object-cover"
-                                            />
+                                        {!user.email ? (
+                                            <></>
                                         ) : (
                                             <div className="w-full h-full bg-accent-light/10 dark:bg-accent-dark/10 flex items-center justify-center">
                                                 <span className="text-sm font-medium text-text-light dark:text-text-dark">
-                                                    {user.username.charAt(0).toUpperCase()}
+                                                    {user?.email.charAt(0).toUpperCase()}
                                                 </span>
                                             </div>
-                                        )} */}
-                                    </div>
-                                    <div className="text-sm">
-                                        <p className="font-medium text-text-light dark:text-text-dark">
-                                            {/* {user.username} */}
-                                        </p>
+                                        )}
                                     </div>
                                 </div>
                                 <Button
                                     className="text-sm font-medium text-text-light dark:text-text-dark hover:text-accent-light bg-transparent border border-accent-light/40 dark:border-accent-dark/40 dark:hover:text-accent-dark hover:bg-accent-light/10 dark:hover:bg-accent-dark/10 transition-all duration-200 rounded-lg"
-                                    onClick={() => {
-                                        logout();
-                                    }}>
+                                    onClick={handleLogout}>
                                     {t("header.logout")}
                                 </Button>
                             </div>

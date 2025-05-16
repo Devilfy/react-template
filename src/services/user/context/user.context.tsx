@@ -8,7 +8,7 @@ interface UserContextType {
     user: User | null;
     isAuthenticated: boolean;
     isLoading: boolean;
-    updateUser: (user: User | null) => void;
+    updateUser: () => void;
 }
 
 const UserContext = createContext<UserContextType | null>(null);

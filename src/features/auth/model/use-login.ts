@@ -7,9 +7,10 @@ import { useCallback } from "react";
 import type { LoginFormData } from "./types";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
-
+import useUser from "@/services/user/model/use-user";
 export function useLogin() {
     const { t } = useTranslation();
+    const { updateUser } = useUser();
     const session = useSession();
     const navigate = useNavigate();
 
@@ -18,6 +19,7 @@ export function useLogin() {
         onSuccess: (data) => {
             session.login(data.accessToken, data.refreshToken);
             toast.success(t("login.success"));
+            updateUser();
             navigate(ROUTES.HOME);
         },
         onError: () => {
