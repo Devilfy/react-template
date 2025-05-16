@@ -1,15 +1,15 @@
-import type { FieldValues, Resolver } from "react-hook-form";
+import { z } from "zod";
 
-export interface FormProps<T extends FieldValues> {
+export interface FormProps<T extends z.ZodType> {
     className?: string;
     fields: FormFieldProps[];
+    schema: T;
     submitButton: {
         text: string;
         className?: string;
         isLoading?: boolean;
     };
-    onSubmit: (data: T) => Promise<unknown>;
-    resolver?: Resolver<T>;
+    onSubmit: (data: z.infer<T>) => void;
 }
 
 export interface FormFieldProps {

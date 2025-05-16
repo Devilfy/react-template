@@ -39,8 +39,9 @@ export const ru = {
             email: "Email",
             password: "Пароль",
             required: "Обязательное поле",
-            min: "Минимальное 6 символов",
-            max: "Максимальное 32 символов",
+            min: "Минимум {{count}} символов",
+            max: "Максимум {{count}} символов",
+            email_invalid: "Неверный формат email",
         },
         notFound: {
             title: "Страница не найдена",

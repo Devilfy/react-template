@@ -39,8 +39,9 @@ export const en = {
             email: "Email",
             password: "Password",
             required: "Required",
-            min: "Minimum 6 characters",
-            max: "Maximum 32 characters",
+            min: "Minimum {{count}} characters",
+            max: "Maximum {{count}} characters",
+            email_invalid: "Invalid email format",
         },
         notFound: {
             title: "Page Not Found",

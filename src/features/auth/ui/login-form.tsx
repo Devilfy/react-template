@@ -1,8 +1,9 @@
 import type { FormFieldProps } from "@/shared/ui/form/form.types";
 import FormBuilder from "@/shared/ui/form/form-builder";
 import { useLogin } from "../model/use-login";
-import type { LoginFormData } from "../model/types";
+import { loginSchema, type LoginFormData } from "../model/types";
 import { useTranslation } from "react-i18next";
+
 const LoginForm = () => {
     const { login, isPending } = useLogin();
     const { t } = useTranslation();
@@ -12,11 +13,13 @@ const LoginForm = () => {
             name: "email",
             label: t("input.email"),
             type: "email",
+            required: true,
         },
         {
             name: "password",
             label: t("input.password"),
             type: "password",
+            required: true,
         },
     ];
 
@@ -28,6 +31,7 @@ const LoginForm = () => {
         <div>
             <FormBuilder
                 fields={fields}
+                schema={loginSchema}
                 submitButton={{
                     text: t("login.loginButton"),
                     isLoading: isPending,

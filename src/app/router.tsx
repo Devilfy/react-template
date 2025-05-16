@@ -25,6 +25,10 @@ export const router = createBrowserRouter([
                         path: ROUTES.HOME,
                         element: <p>Home</p>,
                     },
+                    {
+                        path: ROUTES.PROFILE,
+                        lazy: () => import("@/features/profile/profile.page"),
+                    },
                 ],
             },
             {
@@ -34,10 +38,6 @@ export const router = createBrowserRouter([
             {
                 path: ROUTES.REGISTER,
                 lazy: () => import("@/features/auth/register.page"),
-            },
-            {
-                path: ROUTES.PROFILE,
-                lazy: () => import("@/features/profile/profile.page"),
             },
             {
                 path: ROUTES.NOT_FOUND,

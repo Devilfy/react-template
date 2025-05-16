@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
-import type { FieldValues, Path, Resolver } from "react-hook-form";
+import type { Path, FieldError } from "react-hook-form";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import type { FormFieldProps, FormProps } from "./form.types";
 import { cn } from "@/shared/lib/css";
 import { Button } from "../kit/button";
@@ -16,18 +18,18 @@ import {
     SelectValue,
 } from "../kit/select";
 
-const FormBuilder = <T extends FieldValues>({
+const FormBuilder = <T extends z.ZodType>({
     fields,
     className,
     submitButton,
+    schema,
     onSubmit,
-    resolver,
-}: FormProps<T> & { resolver?: Resolver<T> }) => {
+}: FormProps<T>) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<T>({ resolver });
+    } = useForm<z.infer<T>>({ resolver: zodResolver(schema) });
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -166,6 +168,12 @@ const FormBuilder = <T extends FieldValues>({
                             return null;
                     }
                 })()}
+
+                {errors[field.name as Path<T>] && (
+                    <p className="text-destructive text-sm mt-1">
+                        {(errors[field.name as Path<T>] as FieldError)?.message || "Invalid field"}
+                    </p>
+                )}
             </div>
         );
     };
